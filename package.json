@@ -1,0 +1,25 @@
+{
+  "name": "api-orion-connector",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "",
+  "keywords": [],
+  "author": {
+    "name": "Mattia Marzano"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "node": ">=4.8.4"
+  },
+  "dependencies": {
+    "properties-reader": "0.0.16",
+    "request": "2.87.0",
+    "xml2js": "0.4.19"
+  }
+}
