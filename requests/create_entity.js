@@ -8,7 +8,7 @@ module.exports = {
     var cb_port = properties.get('context-broker-port');
 
     var options = {
-      uri: 'http://'+cb_host+':'+cb_port+'/v2/entities',
+      uri: 'http://'+cb_host+':'+cb_port+'/v2/entities?options=keyValues',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

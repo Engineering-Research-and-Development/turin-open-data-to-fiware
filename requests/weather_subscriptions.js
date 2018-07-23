@@ -25,21 +25,19 @@ module.exports = {
           "entities": [
             {
               "idPattern": ".*",
-              "type": "Weather_Station"
+              "type": "WeatherObserved"
             }
           ],
           "condition": {
             "attrs": [
-              "lat",
-              "lng",
+              "atmosphericPressure",
+              "precipitation",
+              "relativeHumidity",
               "temperature",
-              "relative_humidity",
-              "dewpoint",
-              "pressure",
-              "wind_strength",
-              "wind_dir",
-              "rain",
-              "rain_rate"
+              "windDirection",
+              "windSpeed",
+              "dateObserved",
+              "dewPoint"
             ]
           }
         },
@@ -48,16 +46,14 @@ module.exports = {
             "url": 'http://'+cb_host+':'+ql_port+'/v2/notify'
           },
           "attrs": [
-            "lat",
-            "lng",
+            "atmosphericPressure",
+            "precipitation",
+            "relativeHumidity",
             "temperature",
-            "relative_humidity",
-            "dewpoint",
-            "pressure",
-            "wind_strength",
-            "wind_dir",
-            "rain",
-            "rain_rate"
+            "windDirection",
+            "windSpeed",
+            "dateObserved",
+            "dewPoint"
           ],
           "metadata": ["dateCreated", "dateModified"]
         },

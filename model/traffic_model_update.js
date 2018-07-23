@@ -1,7 +1,7 @@
 module.exports = {
   model: function(traffic){
 
-    var model =  {
+  /*  var model =  {
 
       "lat":{
         "value": traffic.$.lat,
@@ -23,7 +23,13 @@ module.exports = {
         "value": traffic.speedflow[0].$.speed,
         "type":"Number"
       }
-    };
+    };*/
+
+    var model = {
+      "dateObserved": new Date().toISOString(),
+      "intensity": traffic.speedflow[0].$.flow,
+      "averageVehicleSpeed": traffic.speedflow[0].$.speed
+    }
 
     return model;
   }

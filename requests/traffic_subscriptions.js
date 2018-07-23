@@ -20,21 +20,19 @@ module.exports = {
         'Fiware-ServicePath': fiware_service_path
       },
       json: {
-        "description": "Traffic station",
+        "description": "Traffic Flow Observed",
         "subject": {
           "entities": [
             {
               "idPattern": ".*",
-              "type": "TrafficStation"
+              "type": "TrafficFlowObserved"
             }
           ],
           "condition": {
             "attrs":[
-              "lat",
-              "lng",
-              "accuracy",
-              "flow",
-              "speed"
+              "intensity",
+              "averageVehicleSpeed",
+              "dateObserved"
             ]
           }
         },
@@ -43,11 +41,9 @@ module.exports = {
             "url": 'http://'+cb_host+':'+ql_port+'/v2/notify'
           },
           "attrs": [
-            "lat",
-            "lng",
-            "accuracy",
-            "flow",
-            "speed"
+            "intensity",
+            "averageVehicleSpeed",
+            "dateObserved"
           ],
           "metadata": ["dateCreated", "dateModified"]
         },

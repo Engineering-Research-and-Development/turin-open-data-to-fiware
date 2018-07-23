@@ -1,7 +1,7 @@
 module.exports = {
   model: function(name){
 
-    var model =  {
+    /*var model =  {
       "id": name,
       "type":"Weather_Station",
       "lat":{
@@ -44,7 +44,36 @@ module.exports = {
         "value": "",
         "type":"Number"
       }
-    };
+    };*/
+          var model = {
+                  "id": name,
+                  "type": "WeatherObserved",
+                  "address":
+                  {
+                      "addressLocality": "Torino R. Parco 250 m",
+                      "addressCountry": "IT"
+                  },
+                  "dateObserved": new Date().toISOString(),
+                  "atmosphericPressure": "",
+                  "location":
+                  {
+                      "type": "Point",
+                      "coordinates":
+                      [
+                          7.69,
+                          45.08
+                      ]
+                  },
+                  "precipitation": "",
+                  "relativeHumidity": "",
+                  "source": "https://www.torinometeo.org/api/v1/realtime/data/",
+                  "stationName": "To R. Parco 250 m",
+                  "temperature": "",
+                  "windDirection": "",
+                  "windSpeed": "",
+                  "dewPoint": ""
+      }
+
 
     return model;
   }

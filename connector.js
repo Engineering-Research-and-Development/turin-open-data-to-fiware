@@ -43,9 +43,13 @@ function callbackWeather(error, responseW) {
     if(count == 0){
       console.log("Trying to create entity");
       /*for (var i = 0, len = stations.length; i < len; i++) {
+        if(stations[i].station.name == "To R. Parco 250 m"){
+        console.log(i)
+      }
+    }*/
 
-      if(stations[i].station.city == "Torino"){*/
-      var optionsCreate = create_entity.create_entity(weather_Model_create.model(stations[91].station.slug));
+      //if(stations[i].station.city == "Torino"){*/
+      var optionsCreate = create_entity.create_entity(weather_Model_create.model(stations[92].station.slug));
       request(optionsCreate, callbackCreate);
       if(subscriptions==true){
         request(options_weather_Subscriptions, function(err){
@@ -58,8 +62,8 @@ function callbackWeather(error, responseW) {
     }
     count = 1;
 
-    var data = weather_Model_update.model(stations[91]);
-    var optionsUpdate = update_entity.update_entity(data,stations[91].station.slug);
+    var data = weather_Model_update.model(stations[92]);
+    var optionsUpdate = update_entity.update_entity(data,stations[92].station.slug);
     request(optionsUpdate, function callbackupdate(error) {
       if(error){
       console.log(error);
@@ -90,10 +94,10 @@ function callbackTraffic(error, responseT) {
           /*for (var i = 0, len = stations.length; i < len; i++) {
 
           if(stations[i].station.city == "Torino"){*/
-          var optionsCreate = create_entity.create_entity(traffic_Model_create.model("result.traffic_data.FDT_data[0]"));
+          var optionsCreate = create_entity.create_entity(traffic_Model_create.model("result.traffic_data.FDT_data[11]"));
           request(optionsCreate, callbackCreate);
           if(subscriptions==true){
-            
+
             request(options_traffic_Subscriptions, function(err){
               if(err)
               console.log(err);
@@ -105,9 +109,9 @@ function callbackTraffic(error, responseT) {
           //}
         }
         count2 = 1;
-        //console.log(result.traffic_data.FDT_data[0])
-        var data = traffic_Model_update.model(result.traffic_data.FDT_data[0]);
-        var optionsUpdate = update_entity.update_entity(data,"result.traffic_data.FDT_data[0]");
+        //console.log(result.traffic_data.FDT_data[11])
+        var data = traffic_Model_update.model(result.traffic_data.FDT_data[11]);
+        var optionsUpdate = update_entity.update_entity(data,"result.traffic_data.FDT_data[11]");
         request(optionsUpdate, function callbackupdate(error) {
           if(error)
           console.log(error)
