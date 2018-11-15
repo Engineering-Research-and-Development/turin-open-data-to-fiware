@@ -45,6 +45,8 @@ module.exports = {
         "type":"Number"
       }
     };*/
+    var date = new Date(); // Or the date you'd like converted.
+    var isoDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
           var model = {
                   "id": name,
                   "type": "WeatherObserved",
@@ -53,7 +55,7 @@ module.exports = {
                       "addressLocality": "Torino R. Parco 250 m",
                       "addressCountry": "IT"
                   },
-                  "dateObserved": new Date().toISOString(),
+                  "dateObserved": isoDate,
                   "atmosphericPressure": "",
                   "location":
                   {

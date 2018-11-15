@@ -25,6 +25,9 @@ module.exports = {
 "type":"Number"
 }
 };*/
+
+var date = new Date(); // Or the date you'd like converted.
+var isoDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
 var model =  {
         "id": name,
         "type": "TrafficFlowObserved",
@@ -42,7 +45,7 @@ var model =  {
             ]
           ]
         },
-        "dateObserved": new Date().toISOString(),
+        "dateObserved": isoDate,
         "intensity": "",
         "averageVehicleSpeed": ""
         } ;

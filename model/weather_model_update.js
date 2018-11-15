@@ -1,8 +1,9 @@
 module.exports = {
   model: function(weather){
-
+    var date = new Date(); // Or the date you'd like converted.
+    var isoDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
     var model =  {
-      "dateObserved": new Date().toISOString(),
+      "dateObserved": isoDate,
       "atmosphericPressure": weather.pressure,
       "precipitation": weather.rain,
       "relativeHumidity": weather.relative_humidity,
