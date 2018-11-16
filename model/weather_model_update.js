@@ -5,7 +5,7 @@ module.exports = {
     var model =  {
       "dateObserved": isoDate,
       "atmosphericPressure": weather.pressure,
-      "precipitation": weather.rain,
+      "precipitation": weather.rain_rate,
       "relativeHumidity": weather.relative_humidity,
       "temperature": weather.temperature,
       "windDirection": weather.wind_dir,
