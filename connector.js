@@ -20,7 +20,7 @@ var subscriptions = properties.get('subscriptions');
 var update_interval = properties.get('update-interval');
 var count = 0;
 var count2 = 0;
-
+var turinStationNumber=null;
 
 function callbackCreate(error, response, body) {
   if (!error) {
@@ -40,16 +40,18 @@ function callbackWeather(error, responseW) {
   if (!error) {
     console.log("Fetching weather data...");
     var stations = JSON.parse(responseW.body);
+    
     if(count == 0){
       console.log("Trying to create entity");
-      /*for (var i = 0, len = stations.length; i < len; i++) {
+      for (var i = 0, len = stations.length; i < len; i++) {
         if(stations[i].station.name == "To R. Parco 250 m"){
-        console.log(i)
+        turinStationNumber=i;
       }
-    }*/
-
+    }
+	if (turinStationNumber==null)
+		return;
       //if(stations[i].station.city == "Torino"){*/
-      var optionsCreate = create_entity.create_entity(weather_Model_create.model(stations[92].station.slug));
+      var optionsCreate = create_entity.create_entity(weather_Model_create.model(stations[turinStationNumber].station.slug));
       request(optionsCreate, callbackCreate);
       if(subscriptions==true){
         request(options_weather_Subscriptions, function(err){
@@ -62,8 +64,9 @@ function callbackWeather(error, responseW) {
     }
     count = 1;
 
-    var data = weather_Model_update.model(stations[92]);
-    var optionsUpdate = update_entity.update_entity(data,stations[92].station.slug);
+    var data = weather_Model_update.model(stations[turinStationNumber]);
+    var optionsUpdate = update_entity.update_entity(data,stations[turinStationNumber].station.slug);
+    console.log("optionsUpdate="+JSON.stringify(optionsUpdate));
     request(optionsUpdate, function callbackupdate(error) {
       if(error){
       console.log(error);
